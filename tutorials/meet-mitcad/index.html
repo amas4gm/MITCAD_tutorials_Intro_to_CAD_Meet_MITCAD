@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intro to CAD: Meet MITCAD</title>
+<link rel="stylesheet" href="lesson.css">
+<script defer src="steps.js"></script>
+<script defer src="lesson.js"></script>
+</head>
+<body>
+<main>
+<header><p class="kicker">INTRO TO CAD</p><h1>Meet MITCAD</h1>
+<p>Build a 30 mm cube with a Ø10 mm through-hole in one side.</p></header>
+<section id="welcome">
+<h2>Find your bearings</h2>
+<p>Design is where you model. Start in its <strong>Solid</strong> tab. The sketch tools and Sketch Palette appear when you edit a 2D sketch.</p>
+<p><strong>Make</strong> prepares manufacturing outputs. <strong>Render</strong> prepares images. <strong>Drawing</strong> makes technical sheets. This lesson stays in Design.</p>
+<p>Use a new, empty millimeter design. From the MITCAD Start page, opening this tutorial creates a fresh design for you.</p>
+<details>
+<summary>Listen to the welcome</summary>
+<audio controls preload="none" src="welcome.mp3" aria-label="Welcome narration"></audio>
+<p>You’ll learn to move around the design, draw and constrain a square, and extrude it into a cube. Then you’ll sketch a circle on a side face and cut a hole through the cube. Follow the highlighted controls and check the result after each step.</p>
+</details>
+<button id="begin">Start lesson</button>
+</section>
+<section id="task" hidden>
+<div class="progress"><span id="chapter"></span><span id="count"></span></div>
+<progress id="progress" value="0"></progress>
+<h2 id="heading"></h2>
+<p id="instruction"></p>
+<p id="concept"></p>
+<p id="status" role="status"></p>
+<button id="resume" hidden>Show the guide again</button>
+</section>
+<section id="complete" hidden>
+<h2>Inspect your cube</h2>
+<p>Orbit to see both openings. The Browser organizes the design and the Timeline records the two sketches and two Extrude features in order.</p>
+<p>Save the design from MITCAD when you’re ready to keep it.</p>
+</section>
+<footer><label><input id="sound" type="checkbox" checked> Feedback sounds</label></footer>
+</main>
+</body>
+</html>
+

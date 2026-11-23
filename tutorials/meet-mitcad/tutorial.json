@@ -1,0 +1,11 @@
+{
+  "id": "meet-mitcad",
+  "title": "Intro to CAD: Meet MITCAD",
+  "language": "en",
+  "version": "0.1.0",
+  "min_mitcad": "0.71.0",
+  "license": "LicenseRef-AMAS4GM-Review",
+  "description": "Navigate the Design workspace and build a fully constrained 30 mm cube with a side through-hole.",
+  "start": "index.html"
+}
+

@@ -1,0 +1,25 @@
+:root {
+  color-scheme: light dark;
+  font: 15px/1.55 system-ui, sans-serif;
+  --accent: light-dark(#075e55, #78ded0);
+  --panel: light-dark(#e9f5f1, #203b38);
+}
+body { margin: 0; background: Canvas; color: CanvasText; }
+main { max-width: 37rem; margin: auto; padding: clamp(12px, 5vw, 24px); }
+header { border-block-end: 1px solid GrayText; padding-block-end: .75rem; }
+.kicker, .progress { color: var(--accent); font-weight: 700; }
+.kicker { letter-spacing: .13em; font-size: .75rem; }
+h1 { font-size: clamp(1.5rem, 7vw, 2.4rem); line-height: 1.08; margin: .25em 0; }
+h2 { font-size: 1.18rem; line-height: 1.25; }
+#task { padding-block-start: 1rem; }
+.progress { display: flex; flex-wrap: wrap; justify-content: space-between; font-size: .85rem; }
+progress { width: 100%; accent-color: var(--accent); }
+#instruction { background: var(--panel); padding: .8rem; border-inline-start: 3px solid var(--accent); }
+#status { min-height: 1.5em; }
+button { font: inherit; font-weight: 650; padding: .48rem .78rem; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+footer { margin-block-start: 1.3rem; padding-block-start: .8rem; border-block-start: 1px solid GrayText; }
+details { margin-block: 1rem; }
+summary { cursor: pointer; }
+audio { display: block; max-width: 100%; margin-block-start: .5rem; }
+

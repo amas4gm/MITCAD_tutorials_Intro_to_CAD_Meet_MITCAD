@@ -1,0 +1,60 @@
+"use strict";
+
+const orient = "Find your bearings";
+const square = "Sketch the square";
+const cube = "Extrude the cube";
+const hole = "Sketch the hole";
+const cut = "Cut through";
+
+const steps = [
+  [orient, "Face the front",
+    "Roll the wheel over the viewport to try zooming. With the viewport focused, press 1 for Front View. You can also run Front View from command search.",
+    "The viewport is your camera into the design. Changing the view leaves the model’s dimensions alone.",
+    {view: true}, {command: "view.front"}],
+  [orient, "Fit the design",
+    "Try middle-drag to pan and Shift + middle-drag to orbit with the default mouse scheme. Then click Fit on the navigation bar.",
+    "Fit brings the design back into view. Mouse gestures follow the navigation scheme in Preferences.",
+    {command: "view.fit"}, {command: "view.fit"}],
+  [square, "Choose the XY plane",
+    "In Solid, click Create Sketch, then pick the XY plane at the origin.",
+    "A plane gives a 2D sketch its location and orientation in 3D space.",
+    {command: "sketch.create"}, {mode: "sketch"}],
+  [square, "Draw a 30 × 30 mm square",
+    "Choose 2-Point Rectangle. Snap its first corner to the origin. Move diagonally down and left. Type 30, Tab, 30, then Enter. Press Esc once to end the rectangle tool. Check both dimensions and “Fully constrained” before Finish Sketch.",
+    "The origin fixes the corner’s location. Horizontal and vertical relations keep the sides square. Two typed dimensions fix the size. If the result is wrong, end the tool and Undo before redrawing.",
+    {command: "sketch.finish"}, {mode: "idle"}, ["sketch.rectangle", "edit.undo"]],
+  [cube, "Open Extrude",
+    "In Solid, click Extrude. If the profile is empty, select the shaded square.",
+    "A closed sketch encloses a profile. Extrude sweeps that profile into a solid.",
+    {command: "solid.extrude"}, {started: "solid.extrude"}],
+  [cube, "Set the height",
+    "Set Distance to 30 mm and wait for the next instruction. Leave the operation at New Body.",
+    "The square already measures 30 mm in two directions. Extruding it 30 mm makes the third edge the same length.",
+    {input: "distance"}, {input: "distance", value: "30 mm"}, ["solid.extrude", "edit.undo"]],
+  [cube, "Create the solid",
+    "Check that the preview is a cube, then click OK.",
+    "The Timeline at the bottom now records the sketch and the Extrude feature. The Browser groups the resulting body and sketch.",
+    {input: "distance"}, {command: "solid.extrude"}],
+  [hole, "Look squarely at a side",
+    "With the viewport focused, press 1 for Front View, or run Front View from command search.",
+    "A face can serve as the plane for your next sketch. Front makes a vertical side easy to pick.",
+    {view: true}, {command: "view.front"}],
+  [hole, "Start a sketch on the cube",
+    "Click Create Sketch, then click inside the visible vertical face of the cube.",
+    "A face-based sketch follows its supporting face when the part changes.",
+    {command: "sketch.create"}, {mode: "sketch"}],
+  [hole, "Size and constrain the hole",
+    "Choose Center Diameter Circle. Click near the middle of the face, move outward, type 10, then press Enter. Press Esc once. Select the circle’s center point, then choose Fix/Unfix. Check Ø10 and “Fully constrained” before Finish Sketch.",
+    "The diameter controls size. Fixing the center point controls position. Leave clearance around the circle so it forms a closed hole. If needed, use Undo before finishing.",
+    {command: "sketch.finish"}, {mode: "idle"},
+    ["sketch.circle", "sketch.constraint.fix", "edit.undo"]],
+  [cut, "Preview a through-hole",
+    "Click Extrude. In Profiles, select only the inside of the circle. Clear any preselected outer region. Set Operation to Cut and Extent to All. Use Flip if needed to point into the cube, then click OK once the preview shows a circular cut.",
+    "This Extrude uses the same kind of profile as before. Cut removes material and All reaches the far side.",
+    {command: "solid.extrude"}, {command: "solid.extrude"}],
+  [cut, "Inspect the finished part",
+    "With the viewport focused, press Home for the angled view. Orbit to inspect both openings.",
+    "You built the solid from two sketches and two features. Each sketch has a defined size and position.",
+    {view: true}, {command: "view.home"}],
+];
+
